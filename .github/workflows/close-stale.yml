@@ -3,19 +3,15 @@
 # Close open issues after a period of inactivity
 #
 
-name: Close Stale Issues
+name: "Close stale issues"
 
 on:
   schedule:
-  - cron: "22 1 * * *"
+  - cron: "0 1 * * *"
 
 jobs:
   stale:
-    name: Close Stale Issues
-    if: github.repository == 'MarlinFirmware/Marlin'
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/stale@v3
       with:
@@ -24,4 +20,3 @@ jobs:
         days-before-stale: 30
         days-before-close: 5
         stale-issue-label: 'stale-closing-soon'
-        exempt-issue-labels: 'T: Feature Request'
